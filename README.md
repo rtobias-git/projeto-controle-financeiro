@@ -64,8 +64,19 @@ asadmin deploy target/projeto-inicial-1.0-SNAPSHOT.war
 Acesse a aplicacao no navegador:
 `http://localhost:8080/projeto-inicial-1.0-SNAPSHOT/`
 
-## Demonstracao do Build
+## Demonstracao da Interface Web
 
-Abaixo segue a captura da compilacao e empacotamento com Maven:
+### Extrato e Listagem de Lancamentos
+Listagem dinamica de lancamentos financeiros com discriminacao de valores, datas de vencimento/pagamento, status de receitas e despesas com PrimeFaces:
 
-![Build do Projeto de Controle Financeiro](images/build_financeiro.png)
+![Listagem de Lancamentos](images/listagem_lancamentos.png)
+
+### Cadastro de Lancamento Financeiro
+Formulario estruturado para inclusao de novas transacoes com definicao de tipo (Receita ou Despesa), valores e datas:
+
+![Cadastro de Lancamento](images/cadastro_lancamento.png)
+
+### Tela de Autenticacao
+Acesso seguro ao sistema com controle de usuario e perfis de permissao:
+
+![Tela de Login](images/tela_login.png)
