@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="primefaces"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+
+    <body>
+
+        <ui:composition template="./../index.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <f:facet name="header">
+                        Lista de lancamentos
+                    </f:facet>
+                    <p:dataTable value="#{lancamentoController.obterTodos()}"
+                                 selectionMode="single"
+                                 selection="#{lancamentoController.lancamentoSelecionado}"
+                                 var="lancamento"
+                                 rowKey="#{lancamento.id}">
+
+
+                        <p:column headerText="Identificador">
+                            <h:outputText value="#{lancamento.id}"/>
+                        </p:column>
+
+                        <p:column headerText="Descricao">
+                            <h:outputText value="#{lancamento.descricao}"/>
+                        </p:column>
+
+                        <p:column headerText="Valor">
+                            <h:outputText value="#{lancamento.valor}"/>
+                        </p:column>
+
+                        <p:column headerText="Data vencimento">
+                            <h:outputText value="#{lancamento.data_vencimento}"/>
+                        </p:column>
+
+                        <p:column headerText="Data_pagamento">
+                            <h:outputText value="#{lancamento.data_pagamento}"/>
+                        </p:column>
+
+                        <p:column headerText="Usuário">
+                            <h:outputText value="#{lancamento.usuario.nome}"/>
+                        </p:column>
+
+                    </p:dataTable>
+
+                    <p:commandButton value="Excluir" action="#{lancamentoController.excluir()}" update="@form"/>
+                    <p:commandButton icon="pi pi-pencil" action="/lancamento/editar"/>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,8 @@
+target/
+*.class
+*.war
+nb-configuration.xml
+faces-config.NavData
+.DS_Store
+.idea/
+*.iml

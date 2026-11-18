@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="primefaces"
+      xmlns:f="jakarta.faces.core">
+
+    <body>
+
+        <ui:composition template="./../index.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    
+                    <f:facet name="header">
+                        Pagina de login
+                    </f:facet>
+                    
+                    <p:panelGrid columns="2" layout="tabular">
+                        
+                        <h:outputLabel value="Email"/>
+                        <p:inputText value="#{loginController.usuario.email}"
+                                     required="true"/>
+                        
+                        <h:outputLabel value="Senha"/>
+                        <p:password value="#{loginController.usuario.senha}"
+                                    required="true"/>
+                    </p:panelGrid> 
+                    
+                    <p:commandButton action="#{loginController.acessar()}" value="Acessar"
+                                     update="@all"/>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

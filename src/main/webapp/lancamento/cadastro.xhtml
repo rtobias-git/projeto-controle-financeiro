@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="primefaces"
+      xmlns:f="jakarta.faces.core">
+
+    <body>
+
+        <ui:composition template="./../index.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+
+                    <f:facet name="header">
+                        Cadastro de Lancamentos
+                    </f:facet>
+
+                    <p:panelGrid columns="2" layout="tabular">
+
+                        <h:outputLabel value="Descrição"/>
+                        <p:inputText value="#{lancamentoController.lancamento.descricao}"/>
+
+                        <h:outputLabel value="Tipo"/>
+                        <p:selectOneMenu id="tipo" value="#{lancamentoController.tipoSelecionado}">
+                            <f:selectItem itemLabel="Escolha o Tipo" itemValue=""/>
+                            <f:selectItem itemLabel="Receita" itemValue="RECEITA"/>
+                            <f:selectItem itemLabel="Despesa" itemValue="DESPESA"/>
+                        </p:selectOneMenu>
+
+                        <h:outputLabel value="Valor"/>
+                        <p:inputText value="#{lancamentoController.lancamento.valor}"/>
+
+                        <h:outputLabel value="Data de vencimento"/>
+                        <p:datePicker value="#{lancamentoController.lancamento.data_vencimento}" 
+                                      pattern="dd/MM/yyyy" 
+                                      mask="true" 
+                                      showIcon="true"/>
+
+                        <h:outputLabel value="Data de Pagamento"/>
+                        <p:datePicker value="#{lancamentoController.lancamento.data_pagamento}"
+                                      pattern="dd/MM/yyyy"
+                                      mask="true"
+                                      showIcon="true"/>
+
+
+                        <h:outputLabel value="Usuario"/>
+                        <p:selectOneMenu id="user" value="#{lancamentoController.usuarioSelecionado}">
+                            <f:selectItem itemLabel="Escolha o usuario" itemValue=""/>
+                            <f:selectItems value="#{lancamentoController.obterUsers()}"
+                                           var="usuario"
+                                           itemLabel="#{usuario.nome}"
+                                           itemValue="#{usuario}"/>                        
+                        </p:selectOneMenu>
+
+                    </p:panelGrid>
+
+                    <p:commandButton action="#{lancamentoController.cadastrar()}" value="Cadastrar"/>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
+
+

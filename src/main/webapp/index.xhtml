@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="primefaces"
+      xmlns:f="jakarta.faces.core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <title>Trabalho FP1</title>
+    </h:head>
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">
+                <p:growl id="growl" showDetail="true" />
+                <h:form>
+                    <p:menubar>
+                        <p:menuitem value="Home" outcome="/index"/>
+                        <p:submenu label="Lançamentos">
+                            <p:menuitem value="Cadastrar" outcome="/lancamento/cadastro"/>
+                            <p:menuitem value="Listagem" outcome="/lancamento/listagem"/>
+                        </p:submenu>
+                        
+                        <p:submenu label="Usuario">
+                            <p:menuitem value="Cadastrar" outcome="/usuario/cadastro"/>
+                        </p:submenu>
+                        
+                        <p:menuitem value="Login" outcome="/usuario/login"/>
+                        
+                        <f:facet name="end">
+                            <h:outputText value="#{loginController.usuarioAutenticado.nome}" 
+                                          style="color: red" />
+                        </f:facet>
+                    </p:menubar>
+                </h:form>
+            </ui:insert>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">
+                Corpo
+            </ui:insert>
+        </div>
+
+        <div id="bottom">
+            <ui:insert name="bottom">
+                Rodape
+            </ui:insert>
+        </div>
+
+    </h:body>
+
+</html>
